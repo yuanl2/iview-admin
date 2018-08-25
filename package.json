@@ -4,7 +4,7 @@
   "author": "Lison<lison.modern@gmail.com>",
   "private": false,
   "scripts": {
-    "dev": "vue-cli-service serve --open",
+    "dev": "vue-cli-service serve --open --port=8099",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
@@ -21,6 +21,7 @@
     "iview": "^3.0.0",
     "iview-area": "^1.5.17",
     "js-cookie": "^2.2.0",
+    "qs": "^6.5.2",
     "simplemde": "^1.11.2",
     "sortablejs": "^1.7.0",
     "vue": "^2.5.10",

@@ -13,7 +13,7 @@ import parentView from '@/components/parent-view'
 
 export default [
   {
-    path: '/login',
+    path: '/hsservice/ui/login',
     name: 'login',
     meta: {
       title: 'Login - 登录',
@@ -22,7 +22,7 @@ export default [
     component: () => import('@/view/login/login.vue')
   },
   {
-    path: '/',
+    path: '/hsservice/ui',
     name: '_home',
     redirect: '/home',
     component: Main,
@@ -32,7 +32,7 @@ export default [
     },
     children: [
       {
-        path: '/home',
+        path: '/hsservice/ui',
         name: 'home',
         meta: {
           hideInMenu: true,
@@ -47,20 +47,25 @@ export default [
     path: '',
     name: 'doc',
     meta: {
+      hideInMenu: true,
       title: '文档',
       href: 'https://lison16.github.io/iview-admin-doc/#/',
       icon: 'ios-book'
     }
   },
   {
-    path: '/join',
+    path: '/hsservice/ui/join',
     name: 'join',
+    meta: {
+      hideInMenu: true
+      },
     component: Main,
     children: [
       {
         path: 'join_page',
         name: 'join_page',
         meta: {
+          hideInMenu: true,
           icon: '_qq',
           title: 'QQ群'
         },
@@ -68,55 +73,151 @@ export default [
       }
     ]
   },
-  {
-    path: '/components',
-    name: 'components',
+   {
+      path: '/hsservice/ui/components',
+      name: 'order',
+      meta: {
+        icon: 'logo-buffer',
+        title: '订单管理'
+      },
+      component: Main,
+      children: [
+        {
+          path: 'tables_page_orderInfo',
+          name: 'tables_page_orderInfo',
+          meta: {
+            icon: 'md-grid',
+            title: '订单流水'
+          },
+          component: () => import('@/view/components/tables/orderInfo.vue')
+        },
+        {
+          path: 'tables_page_orderInfoNotFinish',
+          name: 'tables_page_orderInfoNotFinish',
+          meta: {
+            icon: 'md-grid',
+            title: '异常订单'
+          },
+          component: () => import('@/view/components/tables/orderNotFinish.vue')
+        },
+        {
+          path: 'tables_page_dayOrder',
+          name: 'tables_page_dayOrder',
+          meta: {
+            icon: 'md-grid',
+            title: '日报表'
+          },
+          component: () => import('@/view/components/tables/orderStaticsDay.vue')
+        },
+        {
+          path: 'tables_page_MonthOrder',
+          name: 'tables_page_MonthOrder',
+          meta: {
+            icon: 'md-grid',
+            title: '月报表'
+          },
+          component: () => import('@/view/components/tables/orderStaticsMonth.vue')
+        }
+      ]
+    },
+{
+    path: '/hsservice/ui/components',
+    name: 'areaAndDevice',
     meta: {
       icon: 'logo-buffer',
-      title: '组件'
+      title: '网点设备'
     },
     component: Main,
     children: [
       {
-        path: 'count_to_page',
-        name: 'count_to_page',
-        meta: {
-          icon: 'md-trending-up',
-          title: '数字渐变'
-        },
-        component: () => import('@/view/components/count-to/count-to.vue')
-      },
-      {
-        path: 'tables_page',
-        name: 'tables_page',
+        path: 'tables_page_area_user',
+        name: 'tables_page_area_user',
         meta: {
           icon: 'md-grid',
-          title: '多功能表格'
+          title: '网点'
         },
-        component: () => import('@/view/components/tables/tables.vue')
+        component: () => import('@/view/components/tables/area.vue')
+      },
+       {
+          path: 'tables_page_device_fault',
+          name: 'tables_page_device_fault',
+          meta: {
+            icon: 'md-grid',
+            title: '故障设备'
+          },
+          component: () => import('@/view/components/tables/devicesFault.vue')
+        },
+       {
+         path: 'tables_page_device_user',
+         name: 'tables_page_device_user',
+         meta: {
+           icon: 'md-grid',
+           title: '设备信息'
+         },
+         component: () => import('@/view/components/tables/devices.vue')
+       }
+    ]
+  },
+  {
+    path: '/hsservice/ui/components',
+    name: 'configuration',
+    meta: {
+      access: ['admin'],
+      icon: 'logo-buffer',
+      title: '配置管理'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'tables_page_province',
+        name: 'tables_page_province',
+        meta: {
+          icon: 'md-grid',
+          title: '省'
+        },
+        component: () => import('@/view/components/tables/province.vue')
       },
       {
-        path: 'split_pane_page',
-        name: 'split_pane_page',
+        path: 'tables_page_city',
+        name: 'tables_page_city',
         meta: {
-          icon: 'md-pause',
-          title: '分割窗口'
+          icon: 'md-grid',
+          title: '城市'
         },
-        component: () => import('@/view/components/split-pane/split-pane.vue')
+        component: () => import('@/view/components/tables/city.vue')
       },
       {
-        path: 'markdown_page',
-        name: 'markdown_page',
+        path: 'tables_page_area',
+        name: 'tables_page_area',
         meta: {
-          icon: 'logo-markdown',
-          title: 'Markdown编辑器'
+          icon: 'md-grid',
+          title: '区域'
         },
-        component: () => import('@/view/components/markdown/markdown.vue')
+        component: () => import('@/view/components/tables/area.vue')
       },
+      {
+        path: 'tables_page_consume',
+        name: 'tables_page_consume',
+        meta: {
+          icon: 'md-grid',
+          title: '消费类型'
+        },
+        component: () => import('@/view/components/tables/consumes.vue')
+      },
+       {
+         path: 'tables_page_device',
+         name: 'tables_page_device',
+         meta: {
+           icon: 'md-grid',
+           title: '设备信息'
+         },
+         component: () => import('@/view/components/tables/devices.vue')
+       },
       {
         path: 'editor_page',
         name: 'editor_page',
         meta: {
+          hideInMenu: true,
           icon: 'ios-create',
           title: '富文本编辑器'
         },
@@ -126,6 +227,7 @@ export default [
         path: 'icons_page',
         name: 'icons_page',
         meta: {
+          hideInMenu: true,
           icon: '_bear',
           title: '自定义图标'
         },
@@ -134,9 +236,10 @@ export default [
     ]
   },
   {
-    path: '/update',
+    path: '/hsservice/ui/update',
     name: 'update',
     meta: {
+      hideInMenu: true,
       icon: 'md-cloud-upload',
       title: '数据上传'
     },
@@ -163,9 +266,10 @@ export default [
     ]
   },
   {
-    path: '/excel',
+    path: '/hsservice/ui/excel',
     name: 'excel',
     meta: {
+      hideInMenu: true,
       icon: 'ios-stats',
       title: 'EXCEL导入导出'
     },
@@ -192,9 +296,10 @@ export default [
     ]
   },
   {
-    path: '/tools_methods',
+    path: '/hsservice/ui/tools_methods',
     name: 'tools_methods',
     meta: {
+      hideInMenu: true,
       hide: true
     },
     component: Main,
@@ -211,9 +316,10 @@ export default [
     ]
   },
   {
-    path: '/directive',
+    path: '/hsservice/ui/directive',
     name: 'directive',
     meta: {
+      hideInMenu: true,
       hide: true
     },
     component: Main,
@@ -230,58 +336,7 @@ export default [
     ]
   },
   {
-    path: '/multilevel',
-    name: 'multilevel',
-    meta: {
-      icon: 'md-menu',
-      title: '多级菜单'
-    },
-    component: Main,
-    children: [
-      {
-        path: 'level_2_1',
-        name: 'level_2_1',
-        meta: {
-          icon: 'md-funnel',
-          title: '二级-1'
-        },
-        component: () => import('@/view/multilevel/level-2-1.vue')
-      },
-      {
-        path: 'level_2_2',
-        name: 'level_2_2',
-        meta: {
-          access: ['super_admin'],
-          icon: 'md-funnel',
-          showAlways: true,
-          title: '二级-2'
-        },
-        component: parentView,
-        children: [
-          {
-            path: 'level_2_2_1',
-            name: 'level_2_2_1',
-            meta: {
-              icon: 'md-funnel',
-              title: '三级'
-            },
-            component: () => import('@/view/multilevel/level-2-2/level-3-1.vue')
-          }
-        ]
-      },
-      {
-        path: 'level_2_3',
-        name: 'level_2_3',
-        meta: {
-          icon: 'md-funnel',
-          title: '二级-3'
-        },
-        component: () => import('@/view/multilevel/level-2-3.vue')
-      },
-    ]
-  },
-  {
-    path: '/argu',
+    path: '/hsservice/ui/argu',
     name: 'argu',
     meta: {
       hideInMenu: true
@@ -309,7 +364,7 @@ export default [
     ]
   },
   {
-    path: '/401',
+    path: '/hsservice/ui/401',
     name: 'error_401',
     meta: {
       hideInMenu: true
@@ -317,7 +372,7 @@ export default [
     component: () => import('@/view/error-page/401.vue')
   },
   {
-    path: '/500',
+    path: '/hsservice/ui/500',
     name: 'error_500',
     meta: {
       hideInMenu: true

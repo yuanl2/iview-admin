@@ -23,7 +23,7 @@ class httpRequest {
     // 添加请求拦截器
     instance.interceptors.request.use(config => {
       if (!config.url.includes('/users')) {
-        config.headers['x-access-token'] = Cookies.get(TOKEN_KEY)
+        config.headers['Authorization'] = Cookies.get(TOKEN_KEY)
       }
       // Spin.show()
       // 在发送请求之前做些什么
@@ -42,9 +42,9 @@ class httpRequest {
           // Spin.hide()
         }, 500)
       }
-      if (data.code !== 200) {
+      if (res.status !== 200) {
         // 后端服务在个别情况下回报201，待确认
-        if (data.code === 401) {
+        if (res.status === 401) {
           Cookies.remove(TOKEN_KEY)
           window.location.href = window.location.pathname + '#/login'
           Message.error('未登录，或登录失效，请登录')
