@@ -47,6 +47,7 @@ export default [
     path: '',
     name: 'doc',
     meta: {
+      hideInMenu: true,
       title: '文档',
       href: 'https://lison16.github.io/iview-admin-doc/#/',
       icon: 'ios-book'
@@ -55,12 +56,16 @@ export default [
   {
     path: '/join',
     name: 'join',
+    meta: {
+      hideInMenu: true
+      },
     component: Main,
     children: [
       {
         path: 'join_page',
         name: 'join_page',
         meta: {
+          hideInMenu: true,
           icon: '_qq',
           title: 'QQ群'
         },
@@ -70,10 +75,10 @@ export default [
   },
   {
     path: '/components',
-    name: 'components',
+    name: 'configuration',
     meta: {
       icon: 'logo-buffer',
-      title: '组件'
+      title: '配置管理'
     },
     component: Main,
     children: [
@@ -85,6 +90,33 @@ export default [
           title: '数字渐变'
         },
         component: () => import('@/view/components/count-to/count-to.vue')
+      },
+      {
+        path: 'tables_page',
+        name: 'tables_page',
+        meta: {
+          icon: 'md-grid',
+          title: '多功能表格'
+        },
+        component: () => import('@/view/components/tables/tables.vue')
+      },
+      {
+        path: 'tables_page',
+        name: 'tables_page',
+        meta: {
+          icon: 'md-grid',
+          title: '多功能表格'
+        },
+        component: () => import('@/view/components/tables/tables.vue')
+      },
+      {
+        path: 'tables_page',
+        name: 'tables_page',
+        meta: {
+          icon: 'md-grid',
+          title: '多功能表格'
+        },
+        component: () => import('@/view/components/tables/tables.vue')
       },
       {
         path: 'tables_page',
