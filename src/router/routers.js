@@ -73,6 +73,27 @@ export default [
       }
     ]
   },
+
+   {
+      path: '/components',
+      name: 'order',
+      meta: {
+        icon: 'logo-buffer',
+        title: '订单管理'
+      },
+      component: Main,
+      children: [
+        {
+          path: 'tables_page_order',
+          name: 'tables_page_order',
+          meta: {
+            icon: 'md-grid',
+            title: '订单'
+          },
+          component: () => import('@/view/components/tables/tables.vue')
+        }
+      ]
+    },
   {
     path: '/components',
     name: 'configuration',
@@ -92,31 +113,31 @@ export default [
         component: () => import('@/view/components/count-to/count-to.vue')
       },
       {
-        path: 'tables_page',
-        name: 'tables_page',
+        path: 'tables_page_province',
+        name: 'tables_page_province',
         meta: {
           icon: 'md-grid',
-          title: '多功能表格'
+          title: '省'
         },
-        component: () => import('@/view/components/tables/tables.vue')
+        component: () => import('@/view/components/tables/province.vue')
       },
       {
-        path: 'tables_page',
-        name: 'tables_page',
+        path: 'tables_page_city',
+        name: 'tables_page_city',
         meta: {
           icon: 'md-grid',
-          title: '多功能表格'
+          title: '城市'
         },
-        component: () => import('@/view/components/tables/tables.vue')
+        component: () => import('@/view/components/tables/city.vue')
       },
       {
-        path: 'tables_page',
-        name: 'tables_page',
+        path: 'tables_page_area',
+        name: 'tables_page_area',
         meta: {
           icon: 'md-grid',
-          title: '多功能表格'
+          title: '区域'
         },
-        component: () => import('@/view/components/tables/tables.vue')
+        component: () => import('@/view/components/tables/area.vue')
       },
       {
         path: 'tables_page',

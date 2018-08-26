@@ -9,18 +9,17 @@
 
 <script>
 import Tables from '_c/tables'
-import { getTableData } from '@/api/data'
+import { getProvinceTableData } from '@/api/data'
 export default {
-  name: 'tables_page',
+  name: 'tables_page_province',
   components: {
     Tables
   },
   data () {
     return {
       columns: [
+        {title: 'ID', key: 'id', sortable: true},
         {title: 'Name', key: 'name', sortable: true},
-        {title: 'Email', key: 'email', editable: true},
-        {title: 'Create-Time', key: 'createTime'},
         {
           title: 'Handle',
           key: 'handle',
@@ -59,8 +58,9 @@ export default {
     }
   },
   mounted () {
-    getTableData().then(res => {
-      this.tableData = res.data
+    getProvinceTableData().then(res => {
+      console.log(res)
+      this.tableData = res
     })
   }
 }

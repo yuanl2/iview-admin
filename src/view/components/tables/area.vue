@@ -11,7 +11,7 @@
 import Tables from '_c/tables'
 import { getTableData } from '@/api/data'
 export default {
-  name: 'tables_page',
+  name: 'tables_page_area',
   components: {
     Tables
   },
