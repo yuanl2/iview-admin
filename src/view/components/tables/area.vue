@@ -9,7 +9,7 @@
 
 <script>
 import Tables from '_c/tables'
-import { getTableData } from '@/api/data'
+import { getAreaTableData } from '@/api/data'
 export default {
   name: 'tables_page_area',
   components: {
@@ -18,9 +18,10 @@ export default {
   data () {
     return {
       columns: [
+        {title: 'ID', key: 'id', sortable: true},
         {title: 'Name', key: 'name', sortable: true},
-        {title: 'Email', key: 'email', editable: true},
-        {title: 'Create-Time', key: 'createTime'},
+        {title: 'Address', key: 'address', editable: true},
+        {title: 'CityID', key: 'cityID'},
         {
           title: 'Handle',
           key: 'handle',
@@ -59,8 +60,8 @@ export default {
     }
   },
   mounted () {
-    getTableData().then(res => {
-      this.tableData = res.data
+    getAreaTableData().then(res => {
+      this.tableData = res
     })
   }
 }

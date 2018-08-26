@@ -9,25 +9,20 @@
 
 <script>
 import Tables from '_c/tables'
-import { getDeviceTableData } from '@/api/data'
+import { getConsumeTableData } from '@/api/data'
 export default {
-  name: 'tables_page_device',
+  name: 'tables_page_consume',
   components: {
     Tables
   },
   data () {
     return {
       columns: [
-        {title: 'ID', key: 'id', sortable: true},
-        {title: 'DeviceID', key: 'deviceID', sortable: true},
-        {title: '设备类型', key: 'type', sortable: true},
-        {title: '设备名', key: 'name', sortable: true},
-        {title: '城市', key: 'city', sortable: true},
+        {title: '时间', key: 'time', sortable: true},
         {title: '区域', key: 'areaName', sortable: true},
-        {title: '用户', key: 'owner', sortable: true},
-        {title: '状态', key: 'status', sortable: true},
-        {title: '登入时间', key: 'loginTime', editable: true},
-        {title: '登出时间', key: 'logoutTime'},
+        {title: '订单数', key: 'orderNumbers'},
+        {title: '收益', key: 'earnings', editable: true},
+        {title: '代理商', key: 'userName', editable: true},
         {
           title: 'Handle',
           key: 'handle',
@@ -66,7 +61,7 @@ export default {
     }
   },
   mounted () {
-    getDeviceTableData(4).then(res => {
+    getConsumeTableData().then(res => {
       this.tableData = res
     })
   }

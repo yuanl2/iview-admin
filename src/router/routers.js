@@ -84,13 +84,22 @@ export default [
       component: Main,
       children: [
         {
-          path: 'tables_page_order',
-          name: 'tables_page_order',
+          path: 'tables_page_dayOrder',
+          name: 'tables_page_dayOrder',
           meta: {
             icon: 'md-grid',
-            title: '订单'
+            title: '每日订单报表'
           },
-          component: () => import('@/view/components/tables/tables.vue')
+          component: () => import('@/view/components/tables/orderInfo.vue')
+        },
+        {
+          path: 'tables_page_MonthOrder',
+          name: 'tables_page_MonthOrder',
+          meta: {
+            icon: 'md-grid',
+            title: '每月订单报表'
+          },
+          component: () => import('@/view/components/tables/orderInfo.vue')
         }
       ]
     },
@@ -140,18 +149,28 @@ export default [
         component: () => import('@/view/components/tables/area.vue')
       },
       {
-        path: 'tables_page',
-        name: 'tables_page',
+        path: 'tables_page_consume',
+        name: 'tables_page_consume',
         meta: {
           icon: 'md-grid',
-          title: '多功能表格'
+          title: '消费类型'
         },
-        component: () => import('@/view/components/tables/tables.vue')
+        component: () => import('@/view/components/tables/consumes.vue')
       },
-      {
+       {
+         path: 'tables_page_device',
+         name: 'tables_page_device',
+         meta: {
+           icon: 'md-grid',
+           title: '设备信息'
+         },
+         component: () => import('@/view/components/tables/devices.vue')
+       },
+       {
         path: 'split_pane_page',
         name: 'split_pane_page',
         meta: {
+          hideInMenu: true,
           icon: 'md-pause',
           title: '分割窗口'
         },
@@ -161,6 +180,7 @@ export default [
         path: 'markdown_page',
         name: 'markdown_page',
         meta: {
+          hideInMenu: true,
           icon: 'logo-markdown',
           title: 'Markdown编辑器'
         },
@@ -170,6 +190,7 @@ export default [
         path: 'editor_page',
         name: 'editor_page',
         meta: {
+          hideInMenu: true,
           icon: 'ios-create',
           title: '富文本编辑器'
         },
@@ -179,6 +200,7 @@ export default [
         path: 'icons_page',
         name: 'icons_page',
         meta: {
+          hideInMenu: true,
           icon: '_bear',
           title: '自定义图标'
         },
@@ -190,6 +212,7 @@ export default [
     path: '/update',
     name: 'update',
     meta: {
+      hideInMenu: true,
       icon: 'md-cloud-upload',
       title: '数据上传'
     },
@@ -219,6 +242,7 @@ export default [
     path: '/excel',
     name: 'excel',
     meta: {
+      hideInMenu: true,
       icon: 'ios-stats',
       title: 'EXCEL导入导出'
     },
@@ -248,6 +272,7 @@ export default [
     path: '/tools_methods',
     name: 'tools_methods',
     meta: {
+      hideInMenu: true,
       hide: true
     },
     component: Main,
@@ -267,6 +292,7 @@ export default [
     path: '/directive',
     name: 'directive',
     meta: {
+      hideInMenu: true,
       hide: true
     },
     component: Main,
