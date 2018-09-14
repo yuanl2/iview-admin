@@ -1,6 +1,8 @@
 <template>
   <div>
     <Card>
+      <DatePicker type="date" format="yyyy-MM-dd" placeholder="Select date" style="width: 300px" @on-change="handleDataChange"></DatePicker>
+      <Button class="search-btn" type="primary" @click="handleGetData"><Icon type="code"/>&nbsp;&nbsp;获取数据</Button>
       <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns" @on-delete="handleDelete"/>
       <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为Csv文件</Button>
     </Card>
@@ -9,7 +11,7 @@
 
 <script>
 import Tables from '_c/tables'
-import { getConsumeTableData } from '@/api/data'
+import { getOrderInfo } from '@/api/data'
 export default {
   name: 'tables_page_consume',
   components: {
@@ -18,36 +20,18 @@ export default {
   data () {
     return {
       columns: [
-        {title: '时间', key: 'time', sortable: true},
-        {title: '区域', key: 'areaName', sortable: true},
-        {title: '订单数', key: 'orderNumbers'},
-        {title: '收益', key: 'earnings', editable: true},
-        {title: '代理商', key: 'userName', editable: true},
-        {
-          title: 'Handle',
-          key: 'handle',
-          options: ['delete'],
-          button: [
-            (h, params, vm) => {
-              return h('Poptip', {
-                props: {
-                  confirm: true,
-                  title: '你确定要删除吗?'
-                },
-                on: {
-                  'on-ok': () => {
-                    vm.$emit('on-delete', params)
-                    vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
-                  }
-                }
-              }, [
-                h('Button', '自定义删除')
-              ])
-            }
-          ]
-        }
+        {title: '创建时间', key: 'cTime', sortable: true},
+        {title: '订单ID', key: 'orderID', sortable: true},
+        {title: '设备ID', key: 'deviceID', sortable: true},
+        {title: '订单状态', key: 'orderStatusDesc'},
+        {title: '开始时间', key: 'sTime'},
+        {title: '时间(秒)', key: 'duration'},
+        {title: '订单价格(元)', key: 'price'},
+        {title: '区域', key: 'areaName'},
+        {title: '代理商', key: 'user'}
       ],
-      tableData: []
+      tableData: [],
+      startTime: ''
     }
   },
   methods: {
@@ -58,12 +42,17 @@ export default {
       this.$refs.tables.exportCsv({
         filename: `table-${(new Date()).valueOf()}.csv`
       })
+    },
+    handleGetData () {
+      getOrderInfo(4, this.startTime).then(res => {
+        this.tableData = res
+      })
+    },
+    handleDataChange (e) {
+      this.startTime = e
     }
   },
   mounted () {
-    getConsumeTableData().then(res => {
-      this.tableData = res
-    })
   }
 }
 </script>

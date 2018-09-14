@@ -2,58 +2,103 @@ import axios from '@/libs/api.request'
 
 export const getProvinceTableData = () => {
   return axios.request({
-    url: 'http://localhost:8080/hsservice/api/provinces',
-    method: 'get',
-    auth: {
-      username: 'admin',
-      password: '123456'
-    }
+    url: '/api/provinces',
+    method: 'get'
   })
 }
 
 export const getCityTableData = () => {
   return axios.request({
-    url: 'http://localhost:8080/hsservice/api/citys',
-    method: 'get',
-    auth: {
-      username: 'admin',
-      password: '123456'
-    }
+    url: '/api/citys',
+    method: 'get'
   })
 }
 
 export const getAreaTableData = () => {
   return axios.request({
-    url: 'http://localhost:8080/hsservice/api/areas',
-    method: 'get',
-    auth: {
-      username: 'admin',
-      password: '123456'
-    }
+    url: '/api/areas',
+    method: 'get'
   })
 }
 
 export const getConsumeTableData = () => {
   return axios.request({
-    url: 'http://localhost:8080/hsservice/api/consumes',
-    method: 'get',
-    auth: {
-      username: 'admin',
-      password: '123456'
-    }
+    url: '/api/consumes',
+    method: 'get'
   })
 }
 
 export const getDeviceTableData = (id) => {
   return axios.request({
-    url: 'http://localhost:8080/hsservice/api/devices/',
+    url: '/api/devices/',
     method: 'get',
     params: {
       userID: id
-    },
-    auth: {
-      username: 'admin',
-      password: '123456'
+    }
+  })
+}
+
+export const getFaultDeviceTableData = (id) => {
+  return axios.request({
+    url: '/api/devices/',
+    method: 'get',
+    params: {
+      userID: id
+    }
+  })
+}
+
+export const getOrderStaticsTableData = (id, type, startTime, endTime) => {
+  return axios.request({
+    url: '/api/order/statics',
+    method: 'get',
+    params: {
+      user: id,
+      type: type,
+      startTime: startTime,
+      endTime: endTime
+    }
+  })
+}
+
+export const getOrderNotFinish = (id, startTime) => {
+  return axios.request({
+    url: '/api/order/notfinish',
+    method: 'get',
+    params: {
+      user: id,
+      startTime: startTime
+    }
+  })
+}
+
+export const getOrderInfo = (id, startTime) => {
+  return axios.request({
+    url: '/api/order/finish',
+    method: 'get',
+    params: {
+      user: id,
+      startTime: startTime
+    }
+  })
+}
+
+export const getSummaryInfo = (id) => {
+  return axios.request({
+    url: '/api/order/summary',
+    method: 'get',
+    params: {
+      user: id
+    }
+  })
+}
+
+export const getOrderSummaryData = (id) => {
+  return axios.request({
+    url: '/api/order/summaryforhour',
+    method: 'get',
+    params: {
+      user: id
     }
   })
 }

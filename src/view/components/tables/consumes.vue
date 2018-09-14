@@ -24,30 +24,7 @@ export default {
         {title: 'Description', key: 'description', editable: true},
         {title: 'Picpath', key: 'picpath', editable: true},
         {title: 'deviceType', key: 'deviceType', editable: true},
-        {title: 'Value', key: 'value', editable: true},
-        {
-          title: 'Handle',
-          key: 'handle',
-          options: ['delete'],
-          button: [
-            (h, params, vm) => {
-              return h('Poptip', {
-                props: {
-                  confirm: true,
-                  title: '你确定要删除吗?'
-                },
-                on: {
-                  'on-ok': () => {
-                    vm.$emit('on-delete', params)
-                    vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
-                  }
-                }
-              }, [
-                h('Button', '自定义删除')
-              ])
-            }
-          ]
-        }
+        {title: 'Value', key: 'value', editable: true}
       ],
       tableData: []
     }

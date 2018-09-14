@@ -11,7 +11,7 @@
 import Tables from '_c/tables'
 import { getAreaTableData } from '@/api/data'
 export default {
-  name: 'tables_page_area',
+  name: 'tables_page_area_user',
   components: {
     Tables
   },
@@ -20,33 +20,11 @@ export default {
       columns: [
         {title: 'ID', key: 'id', sortable: true},
         {title: 'Name', key: 'name', sortable: true},
-        {title: 'Address', key: 'address', editable: true},
-        {title: 'CityID', key: 'cityID'},
-        {
-          title: 'Handle',
-          key: 'handle',
-          options: ['delete'],
-          button: [
-            (h, params, vm) => {
-              return h('Poptip', {
-                props: {
-                  confirm: true,
-                  title: '你确定要删除吗?'
-                },
-                on: {
-                  'on-ok': () => {
-                    vm.$emit('on-delete', params)
-                    vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
-                  }
-                }
-              }, [
-                h('Button', '自定义删除')
-              ])
-            }
-          ]
-        }
+        {title: 'Address', key: 'address'},
+        {title: 'CityID', key: 'cityID'}
       ],
-      tableData: []
+      tableData: [],
+      timeRanges: []
     }
   },
   methods: {
@@ -63,6 +41,14 @@ export default {
     getAreaTableData().then(res => {
       this.tableData = res
     })
+  },
+  watch: {
+    timeRanges: function (val) {
+      getAreaTableData().then(res => {
+        this.tableData = res
+        console.log(res)
+      })
+    }
   }
 }
 </script>

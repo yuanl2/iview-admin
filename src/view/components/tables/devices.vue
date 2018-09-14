@@ -11,7 +11,7 @@
 import Tables from '_c/tables'
 import { getDeviceTableData } from '@/api/data'
 export default {
-  name: 'tables_page_device',
+  name: 'tables_page_device_user',
   components: {
     Tables
   },
@@ -24,33 +24,10 @@ export default {
         {title: '设备名', key: 'name', sortable: true},
         {title: '城市', key: 'city', sortable: true},
         {title: '区域', key: 'areaName', sortable: true},
-        {title: '用户', key: 'owner', sortable: true},
-        {title: '状态', key: 'status', sortable: true},
+        {title: '用户', key: 'user', sortable: true},
+        {title: '状态', key: 'statusDesc', sortable: true},
         {title: '登入时间', key: 'loginTime', editable: true},
-        {title: '登出时间', key: 'logoutTime'},
-        {
-          title: 'Handle',
-          key: 'handle',
-          options: ['delete'],
-          button: [
-            (h, params, vm) => {
-              return h('Poptip', {
-                props: {
-                  confirm: true,
-                  title: '你确定要删除吗?'
-                },
-                on: {
-                  'on-ok': () => {
-                    vm.$emit('on-delete', params)
-                    vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
-                  }
-                }
-              }, [
-                h('Button', '自定义删除')
-              ])
-            }
-          ]
-        }
+        {title: '登出时间', key: 'logoutTime'}
       ],
       tableData: []
     }

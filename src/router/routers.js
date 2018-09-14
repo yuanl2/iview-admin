@@ -13,7 +13,7 @@ import parentView from '@/components/parent-view'
 
 export default [
   {
-    path: '/login',
+    path: '/hsservice/ui/login',
     name: 'login',
     meta: {
       title: 'Login - 登录',
@@ -22,7 +22,7 @@ export default [
     component: () => import('@/view/login/login.vue')
   },
   {
-    path: '/',
+    path: '/hsservice/ui/',
     name: '_home',
     redirect: '/home',
     component: Main,
@@ -32,7 +32,7 @@ export default [
     },
     children: [
       {
-        path: '/home',
+        path: '/hsservice/ui/home',
         name: 'home',
         meta: {
           hideInMenu: true,
@@ -54,7 +54,7 @@ export default [
     }
   },
   {
-    path: '/join',
+    path: '/hsservice/ui/join',
     name: 'join',
     meta: {
       hideInMenu: true
@@ -73,9 +73,8 @@ export default [
       }
     ]
   },
-
    {
-      path: '/components',
+      path: '/hsservice/ui/components',
       name: 'order',
       meta: {
         icon: 'logo-buffer',
@@ -84,13 +83,31 @@ export default [
       component: Main,
       children: [
         {
+          path: 'tables_page_orderInfo',
+          name: 'tables_page_orderInfo',
+          meta: {
+            icon: 'md-grid',
+            title: '订单流水'
+          },
+          component: () => import('@/view/components/tables/orderInfo.vue')
+        },
+        {
+          path: 'tables_page_orderInfoNotFinish',
+          name: 'tables_page_orderInfoNotFinish',
+          meta: {
+            icon: 'md-grid',
+            title: '异常订单'
+          },
+          component: () => import('@/view/components/tables/orderNotFinish.vue')
+        },
+        {
           path: 'tables_page_dayOrder',
           name: 'tables_page_dayOrder',
           meta: {
             icon: 'md-grid',
             title: '每日订单报表'
           },
-          component: () => import('@/view/components/tables/orderInfo.vue')
+          component: () => import('@/view/components/tables/orderStaticsDay.vue')
         },
         {
           path: 'tables_page_MonthOrder',
@@ -99,14 +116,53 @@ export default [
             icon: 'md-grid',
             title: '每月订单报表'
           },
-          component: () => import('@/view/components/tables/orderInfo.vue')
+          component: () => import('@/view/components/tables/orderStaticsMonth.vue')
         }
       ]
     },
+{
+    path: '/hsservice/ui/components',
+    name: 'areaAndDevice',
+    meta: {
+      icon: 'logo-buffer',
+      title: '网点设备'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'tables_page_area_user',
+        name: 'tables_page_area_user',
+        meta: {
+          icon: 'md-grid',
+          title: '区域'
+        },
+        component: () => import('@/view/components/tables/area.vue')
+      },
+       {
+          path: 'tables_page_device_fault',
+          name: 'tables_page_device_fault',
+          meta: {
+            icon: 'md-grid',
+            title: '故障设备'
+          },
+          component: () => import('@/view/components/tables/devicesFault.vue')
+        },
+       {
+         path: 'tables_page_device_user',
+         name: 'tables_page_device_user',
+         meta: {
+           icon: 'md-grid',
+           title: '设备信息'
+         },
+         component: () => import('@/view/components/tables/devices.vue')
+       }
+    ]
+  },
   {
-    path: '/components',
+    path: '/hsservice/ui/components',
     name: 'configuration',
     meta: {
+      access: ['admin'],
       icon: 'logo-buffer',
       title: '配置管理'
     },
@@ -209,7 +265,7 @@ export default [
     ]
   },
   {
-    path: '/update',
+    path: '/hsservice/ui/update',
     name: 'update',
     meta: {
       hideInMenu: true,
@@ -239,7 +295,7 @@ export default [
     ]
   },
   {
-    path: '/excel',
+    path: '/hsservice/ui/excel',
     name: 'excel',
     meta: {
       hideInMenu: true,
@@ -269,7 +325,7 @@ export default [
     ]
   },
   {
-    path: '/tools_methods',
+    path: '/hsservice/ui/tools_methods',
     name: 'tools_methods',
     meta: {
       hideInMenu: true,
@@ -289,7 +345,7 @@ export default [
     ]
   },
   {
-    path: '/directive',
+    path: '/hsservice/ui/directive',
     name: 'directive',
     meta: {
       hideInMenu: true,
@@ -309,9 +365,10 @@ export default [
     ]
   },
   {
-    path: '/multilevel',
+    path: '/hsservice/ui/multilevel',
     name: 'multilevel',
     meta: {
+      hideInMenu: true,
       icon: 'md-menu',
       title: '多级菜单'
     },
@@ -360,7 +417,7 @@ export default [
     ]
   },
   {
-    path: '/argu',
+    path: '/hsservice/ui/argu',
     name: 'argu',
     meta: {
       hideInMenu: true
@@ -388,7 +445,7 @@ export default [
     ]
   },
   {
-    path: '/401',
+    path: '/hsservice/ui/401',
     name: 'error_401',
     meta: {
       hideInMenu: true
@@ -396,7 +453,7 @@ export default [
     component: () => import('@/view/error-page/401.vue')
   },
   {
-    path: '/500',
+    path: '/hsservice/ui/500',
     name: 'error_500',
     meta: {
       hideInMenu: true
