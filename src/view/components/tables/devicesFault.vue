@@ -22,9 +22,11 @@ export default {
         {title: 'DeviceID', key: 'deviceID', sortable: true},
         {title: '设备类型', key: 'type', sortable: true},
         {title: '设备名', key: 'name', sortable: true},
+        {title: '省份', key: 'province', sortable: true},
         {title: '城市', key: 'city', sortable: true},
-        {title: '区域', key: 'areaName', sortable: true},
-        {title: '用户', key: 'user', sortable: true},
+        {title: '网点名称', key: 'areaName', sortable: true},
+        {title: '合伙人', key: 'user', sortable: true},
+        {title: '进场时间', key: 'enterTime'},
         {title: '状态', key: 'statusDesc', sortable: true},
         {title: '登入时间', key: 'loginTime', editable: true},
         {title: '登出时间', key: 'logoutTime'}

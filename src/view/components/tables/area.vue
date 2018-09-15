@@ -18,10 +18,11 @@ export default {
   data () {
     return {
       columns: [
-        {title: 'ID', key: 'id', sortable: true},
-        {title: 'Name', key: 'name', sortable: true},
-        {title: 'Address', key: 'address'},
-        {title: 'CityID', key: 'cityID'}
+        {title: '网点ID', key: 'id', sortable: true},
+        {title: '网点名称', key: 'name', sortable: true},
+        {title: '网点地址', key: 'address'},
+        {title: '城市ID', key: 'cityID'},
+        {title: '进场时间', key: 'enterTime'}
       ],
       tableData: [],
       timeRanges: []

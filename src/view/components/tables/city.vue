@@ -18,9 +18,9 @@ export default {
   data () {
     return {
       columns: [
-        {title: 'ID', key: 'id', sortable: true},
-        {title: 'Name', key: 'name', sortable: true},
-        {title: 'DistrictName', key: 'districtName'}
+        {title: '城市ID', key: 'id', sortable: true},
+        {title: '城市名称', key: 'name', sortable: true},
+        {title: '行政区名称', key: 'districtName'}
       ],
       tableData: []
     }

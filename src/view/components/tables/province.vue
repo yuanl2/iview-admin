@@ -18,8 +18,8 @@ export default {
   data () {
     return {
       columns: [
-        {title: 'ID', key: 'id', sortable: true},
-        {title: 'Name', key: 'name', sortable: true}
+        {title: '省份ID', key: 'id', sortable: true},
+        {title: '省份名称', key: 'name', sortable: true}
       ],
       tableData: []
     }

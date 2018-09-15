@@ -22,7 +22,7 @@ export default [
     component: () => import('@/view/login/login.vue')
   },
   {
-    path: '/hsservice/ui/',
+    path: '/hsservice/ui',
     name: '_home',
     redirect: '/home',
     component: Main,
@@ -32,7 +32,7 @@ export default [
     },
     children: [
       {
-        path: '/hsservice/ui/home',
+        path: '/hsservice/ui',
         name: 'home',
         meta: {
           hideInMenu: true,
@@ -105,7 +105,7 @@ export default [
           name: 'tables_page_dayOrder',
           meta: {
             icon: 'md-grid',
-            title: '每日订单报表'
+            title: '日报表'
           },
           component: () => import('@/view/components/tables/orderStaticsDay.vue')
         },
@@ -114,7 +114,7 @@ export default [
           name: 'tables_page_MonthOrder',
           meta: {
             icon: 'md-grid',
-            title: '每月订单报表'
+            title: '月报表'
           },
           component: () => import('@/view/components/tables/orderStaticsMonth.vue')
         }
@@ -134,7 +134,7 @@ export default [
         name: 'tables_page_area_user',
         meta: {
           icon: 'md-grid',
-          title: '区域'
+          title: '网点'
         },
         component: () => import('@/view/components/tables/area.vue')
       },
@@ -172,6 +172,7 @@ export default [
         path: 'count_to_page',
         name: 'count_to_page',
         meta: {
+          hideInMenu: true,
           icon: 'md-trending-up',
           title: '数字渐变'
         },

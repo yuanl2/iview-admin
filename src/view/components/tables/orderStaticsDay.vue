@@ -21,12 +21,14 @@ export default {
     return {
       columns: [
         {title: '时间', key: 'time', sortable: true},
-        {title: '区域', key: 'areaName', sortable: true},
+        {title: '网点名称', key: 'areaName', sortable: true},
+        {title: '合伙人', key: 'user', editable: true},
+        {title: '进场时间', key: 'enterTime'},
         {title: '运营设备数(台)', key: 'runningDeviceTotal'},
         {title: '总设备数(台)', key: 'deviceTotal'},
         {title: '订单数(个)', key: 'orderTotal'},
         {title: '收益(元)', key: 'incomeTotal', editable: true},
-        {title: '代理商', key: 'user', editable: true}
+        {title: '单台均收（元）', key: 'averageIncome'}
       ],
       tableData: [],
       timeranges: {

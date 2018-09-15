@@ -27,8 +27,8 @@ export default {
         {title: '开始时间', key: 'sTime'},
         {title: '时间(秒)', key: 'duration'},
         {title: '订单价格(元)', key: 'price'},
-        {title: '区域', key: 'areaName'},
-        {title: '代理商', key: 'user'}
+        {title: '网点名称', key: 'areaName'},
+        {title: '合伙人', key: 'user'}
       ],
       tableData: [],
       startTime: ''
