@@ -1,7 +1,7 @@
 <template>
   <div>
     <Row :gutter="20">
-      <i-col span="6" v-for="(infor, i) in inforCardData" :key="`infor-${i}`" style="height: 120px;">
+      <i-col :xs="12" :sm="12" :md="8" v-for="(infor, i) in inforCardData" :key="`infor-${i}`" style="height: 120px;">
         <infor-card shadow :color="infor.color" :icon="infor.icon" :icon-size="36">
           <count-to :end="infor.count" count-class="count-style"/>
           <p>{{ infor.title }}</p>
@@ -9,17 +9,17 @@
       </i-col>
     </Row>
     <Row :gutter="20" style="margin-top: 20px;">
-      <i-col span="8">
+      <i-col :xs="24" :sm="24" :md="8">
         <Card shadow>
           <chart-pie style="height: 300px;" :value="currentDayPieData" text="当日网点收益"></chart-pie>
         </Card>
       </i-col>
-      <i-col span="8">
+      <i-col :xs="24" :sm="24" :md="8">>
         <Card shadow>
           <chart-pie style="height: 300px;" :value="currentMonthPieData" text="当月网点收益"></chart-pie>
         </Card>
       </i-col>
-      <i-col span="8">
+      <i-col :xs="24" :sm="24" :md="8">>
         <Card shadow>
           <chart-pie style="height: 300px;" :value="monthPieData" text="网点总收益"></chart-pie>
         </Card>
@@ -27,7 +27,7 @@
     </Row>
     <Row style="margin-top: 20px;">
       <Card shadow>
-        <example style="height: 310px;" text="网点总收益"/>
+        <example style="height: 310px;" text=""/>
       </Card>
     </Row>
   </div>

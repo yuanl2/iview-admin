@@ -19,6 +19,10 @@ export default {
     userAvator: {
       type: String,
       default: ''
+    },
+    userName: {
+      type: String,
+      default: 'test'
     }
   },
   methods: {
