@@ -54,7 +54,7 @@ export default {
           {
             name: '昨日订单',
             type: 'line',
-            stack: '总量',
+            stack: '总量1',
             areaStyle: {
               normal: {
                 color: '#0C17A6'
@@ -65,7 +65,7 @@ export default {
           {
             name: '今日订单',
             type: 'line',
-            stack: '总量',
+            stack: '总量2',
             areaStyle: {
               normal: {
                 color: '#398DBF'
