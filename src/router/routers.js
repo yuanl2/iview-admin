@@ -169,16 +169,6 @@ export default [
     component: Main,
     children: [
       {
-        path: 'count_to_page',
-        name: 'count_to_page',
-        meta: {
-          hideInMenu: true,
-          icon: 'md-trending-up',
-          title: '数字渐变'
-        },
-        component: () => import('@/view/components/count-to/count-to.vue')
-      },
-      {
         path: 'tables_page_province',
         name: 'tables_page_province',
         meta: {
@@ -223,26 +213,6 @@ export default [
          },
          component: () => import('@/view/components/tables/devices.vue')
        },
-       {
-        path: 'split_pane_page',
-        name: 'split_pane_page',
-        meta: {
-          hideInMenu: true,
-          icon: 'md-pause',
-          title: '分割窗口'
-        },
-        component: () => import('@/view/components/split-pane/split-pane.vue')
-      },
-      {
-        path: 'markdown_page',
-        name: 'markdown_page',
-        meta: {
-          hideInMenu: true,
-          icon: 'logo-markdown',
-          title: 'Markdown编辑器'
-        },
-        component: () => import('@/view/components/markdown/markdown.vue')
-      },
       {
         path: 'editor_page',
         name: 'editor_page',
@@ -363,58 +333,6 @@ export default [
         },
         component: () => import('@/view/directive/directive.vue')
       }
-    ]
-  },
-  {
-    path: '/hsservice/ui/multilevel',
-    name: 'multilevel',
-    meta: {
-      hideInMenu: true,
-      icon: 'md-menu',
-      title: '多级菜单'
-    },
-    component: Main,
-    children: [
-      {
-        path: 'level_2_1',
-        name: 'level_2_1',
-        meta: {
-          icon: 'md-funnel',
-          title: '二级-1'
-        },
-        component: () => import('@/view/multilevel/level-2-1.vue')
-      },
-      {
-        path: 'level_2_2',
-        name: 'level_2_2',
-        meta: {
-          access: ['super_admin'],
-          icon: 'md-funnel',
-          showAlways: true,
-          title: '二级-2'
-        },
-        component: parentView,
-        children: [
-          {
-            path: 'level_2_2_1',
-            name: 'level_2_2_1',
-            meta: {
-              icon: 'md-funnel',
-              title: '三级'
-            },
-            component: () => import('@/view/multilevel/level-2-2/level-3-1.vue')
-          }
-        ]
-      },
-      {
-        path: 'level_2_3',
-        name: 'level_2_3',
-        meta: {
-          icon: 'md-funnel',
-          title: '二级-3'
-        },
-        component: () => import('@/view/multilevel/level-2-3.vue')
-      },
     ]
   },
   {

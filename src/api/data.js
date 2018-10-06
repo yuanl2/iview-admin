@@ -16,7 +16,7 @@ export const getCityTableData = () => {
 
 export const getAreaTableData = () => {
   return axios.request({
-    url: '/api/areas',
+    url: '/api/locations',
     method: 'get'
   })
 }
@@ -40,7 +40,7 @@ export const getDeviceTableData = (id) => {
 
 export const getFaultDeviceTableData = (id) => {
   return axios.request({
-    url: '/api/devices/',
+    url: '/api/devices/fault',
     method: 'get',
     params: {
       userID: id

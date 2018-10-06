@@ -49,7 +49,6 @@ export default {
     Example
   },
   data () {
-    console.log('data')
     return {
       monthPieData: [],
       inforCardData: [

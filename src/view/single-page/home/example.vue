@@ -66,12 +66,6 @@ export default {
             name: '今日订单',
             type: 'line',
             stack: '总量',
-            label: {
-              normal: {
-                show: true,
-                position: 'top'
-              }
-            },
             areaStyle: {
               normal: {
                 color: '#398DBF'

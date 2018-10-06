@@ -45,15 +45,20 @@ export default {
     },
     handleGetData () {
       getOrderInfo(4, this.startTime).then(res => {
+        console.log(this.tableData)
         this.tableData = res
       })
     },
     handleDataChange (e) {
       this.startTime = e
+      this.tableData = []
+      console.log(this.tableData)
     }
   },
   mounted () {
+    console.log('mounted')
   }
+
 }
 </script>
 

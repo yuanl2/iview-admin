@@ -19,9 +19,10 @@ export default {
     return {
       columns: [
         {title: '网点ID', key: 'id', sortable: true},
-        {title: '网点名称', key: 'name', sortable: true},
+        {title: '网点名称', key: 'areaName', sortable: true},
         {title: '网点地址', key: 'address'},
-        {title: '城市ID', key: 'cityID'},
+        {title: '省/直辖市', key: 'province'},
+        {title: '城市', key: 'cityName'},
         {title: '进场时间', key: 'enterTime'}
       ],
       tableData: [],
