@@ -13,7 +13,62 @@ export default {
     text: String,
     subtext: String
   },
+  watch: {
+    value: function (newValue, oldValue) {
+      this.$nextTick(() => {
+        let xAxisData = this.value.locations
+        let seriesData = this.value.averageIncome
+        let option = {
+          title: {
+            text: this.text,
+            subtext: this.subtext,
+            x: 'center'
+          },
+          xAxis: {
+            type: 'category',
+            data: xAxisData,
+            axisLabel: {
+              show: true,
+              interval: 'auto',
+              textStyle: {
+                color: '#800080',
+                fontFamily: 'verdana',
+                fontSize: 16,
+                fontStyle: 'normal',
+                fontWeight: 'bold'
+              }
+            }
+          },
+          yAxis: {
+            type: 'value'
+          },
+          series: [{
+            data: seriesData,
+            type: 'bar',
+            itemStyle: {
+              normal: {
+                label: {
+                  show: true,
+                  formatter: '{c} ¥',
+                  textStyle: {
+                    color: '#800080',
+                    fontWeight: 'bold',
+                    fontSize: '16'
+                  },
+                  position: 'top'
+                }
+              }
+            },
+            barWidth: '50%'
+          }]
+        }
+        let dom = echarts.init(this.$refs.dom, 'tdTheme')
+        dom.setOption(option)
+      })
+    }
+  },
   mounted () {
+    console.log('bar mounted')
     this.$nextTick(() => {
       let xAxisData = Object.keys(this.value)
       let seriesData = Object.values(this.value)

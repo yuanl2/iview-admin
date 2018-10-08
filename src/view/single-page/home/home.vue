@@ -9,19 +9,40 @@
       </i-col>
     </Row>
     <Row :gutter="20" style="margin-top: 20px;">
-      <i-col :xs="24" :sm="24" :md="8">
+      <i-col :xs="24" :sm="24" :md="12">
         <Card shadow>
           <chart-pie style="height: 300px;" :value="currentDayPieData" text="当日网点收益"></chart-pie>
         </Card>
       </i-col>
-      <i-col :xs="24" :sm="24" :md="8">
+      <i-col :xs="24" :sm="24" :md="12">
         <Card shadow>
           <chart-pie style="height: 300px;" :value="currentMonthPieData" text="当月网点收益"></chart-pie>
         </Card>
       </i-col>
-      <i-col :xs="24" :sm="24" :md="8">
+      <i-col :xs="24" :sm="24" :md="12">
         <Card shadow>
           <chart-pie style="height: 300px;" :value="monthPieData" text="网点总收益"></chart-pie>
+        </Card>
+      </i-col>
+    </Row>
+    <Row :gutter="20" style="margin-top: 20px;">
+      <i-col span="24">
+        <Card shadow>
+          <chart-bar style="height: 300px;" :value="todayAverageIncomebarData" text="当日台均收益"/>
+        </Card>
+      </i-col>
+    </Row>
+    <Row :gutter="20" style="margin-top: 20px;">
+      <i-col span="24">
+        <Card shadow>
+          <chart-bar style="height: 300px;" :value="monthAverageIncomebarData" text="当月台均收益"/>
+        </Card>
+      </i-col>
+    </Row>
+    <Row :gutter="20" style="margin-top: 20px;">
+      <i-col span="24">
+        <Card shadow>
+          <chart-bar style="height: 300px;" :value="allAverageIncomebarData" text="历史总台均收益"/>
         </Card>
       </i-col>
     </Row>
@@ -56,14 +77,11 @@ export default {
       currentMonthPieData: [
       ],
       currentDayPieData: [],
-      barData: {
-        Mon: 13253,
-        Tue: 34235,
-        Wed: 26321,
-        Thu: 12340,
-        Fri: 24643,
-        Sat: 1322,
-        Sun: 1324
+      todayAverageIncomebarData: {
+      },
+      monthAverageIncomebarData: {
+      },
+      allAverageIncomebarData: {
       }
     }
   },
@@ -74,11 +92,15 @@ export default {
 
   },
   mounted () {
+    console.log('home mounted')
     getSummaryInfo('user2').then(res => {
       this.monthPieData = res.allPieData
       this.inforCardData = res.infoCardData
       this.currentMonthPieData = res.currentMonthPieData
       this.currentDayPieData = res.currentDayPieData
+      this.todayAverageIncomebarData = res.todayAverageIncomebarData
+      this.monthAverageIncomebarData = res.monthAverageIncomebarData
+      this.allAverageIncomebarData = res.allAverageIncomebarData
     })
   }
 }

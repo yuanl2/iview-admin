@@ -22,11 +22,11 @@ export default {
           title: {
             text: this.text,
             subtext: this.subtext,
-            x: 'center'
+            x: 'right'
           },
           tooltip: {
             trigger: 'item',
-            formatter: '{a} <br/>{b} : {c} ({d}%)'
+            formatter: '{b} <br/>{c} ¥ ({d}%)'
           },
           legend: {
             orient: 'vertical',
@@ -38,6 +38,14 @@ export default {
               type: 'pie',
               radius: '55%',
               center: ['50%', '60%'],
+              label: {
+                normal: {
+                  formatter: '{b}：{c} ¥ ({d}%)',
+                  textStyle: {
+                    fontWeight: 'bold'
+                  }
+                }
+              },
               data: this.value,
               itemStyle: {
                 emphasis: {

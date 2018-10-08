@@ -45,20 +45,23 @@ export default {
     },
     handleGetData () {
       getOrderInfo(4, this.startTime).then(res => {
-        console.log(this.tableData)
         this.tableData = res
       })
     },
     handleDataChange (e) {
       this.startTime = e
-      this.tableData = []
-      console.log(this.tableData)
     }
   },
   mounted () {
-    console.log('mounted')
+    var x = new Date()
+    var y = x.getFullYear().toString()
+    var m = (x.getMonth() + 1).toString()
+    var d = x.getDate().toString()(d.length === 1) && (d = '0' + d)(m.length === 1) && (m = '0' + m)
+    var yyyymmdd = y + '-' + m + '-' + d
+    getOrderInfo(4, yyyymmdd).then(res => {
+      this.tableData = res
+    })
   }
-
 }
 </script>
 

@@ -27,7 +27,7 @@ export default {
         {title: '运营设备数(台)', key: 'runningDeviceTotal'},
         {title: '总设备数(台)', key: 'deviceTotal'},
         {title: '订单数(个)', key: 'orderTotal'},
-        {title: '收益(元)', key: 'incomeTotal'},
+        {title: '收益(元)', key: 'incomeValue'},
         {title: '单台均收（元）', key: 'averageIncome'}
       ],
       tableData: [],
