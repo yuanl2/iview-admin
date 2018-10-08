@@ -22,7 +22,7 @@ export default {
         {title: '网点名称', key: 'areaName', sortable: true},
         {title: '网点地址', key: 'address'},
         {title: '省/直辖市', key: 'province'},
-        {title: '城市', key: 'cityName'},
+        {title: '城市', key: 'city'},
         {title: '进场时间', key: 'enterTime'}
       ],
       tableData: [],
