@@ -9,6 +9,10 @@ import {getOrderSummaryData} from '@/api/data'
 
 export default {
   name: 'serviceRequests',
+  props: {
+    text: String,
+    subtext: String
+  },
   data () {
     return {
       dom: null
@@ -22,6 +26,14 @@ export default {
   mounted () {
     getOrderSummaryData('user2').then(res => {
       const option = {
+        title: {
+          textStyle: {
+            fontSize: 16
+          },
+          text: this.text,
+          subtext: this.subtext,
+          x: 'center'
+        },
         tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -31,8 +43,17 @@ export default {
             }
           }
         },
+        legend: {
+          x: 'left', // 'center' | 'left' | {number},
+          y: 'top', // 'center' | 'bottom' | {number}
+          icon: 'rect',
+          textStyle: {
+            fontSize: 16
+          },
+          data: ['今日订单', '昨日订单']
+        },
         grid: {
-          top: '3%',
+          top: '20%',
           left: '1.2%',
           right: '1%',
           bottom: '3%',
@@ -42,11 +63,23 @@ export default {
           {
             type: 'category',
             boundaryGap: false,
+            axisLabel: {
+              show: true,
+              interval: 'auto',
+              textStyle: {
+                color: '#800080',
+                fontFamily: 'verdana',
+                fontSize: 16,
+                fontStyle: 'normal',
+                fontWeight: 'bold'
+              }
+            },
             data: ['0时', '1时', '3时', '4时', '5时', '6时', '7时', '8时', '9时', '10时', '11时', '12时', '13时', '14时', '15时', '16时', '17时', '18时', '19时', '20时', '21时', '22时', '23时']
           }
         ],
         yAxis: [
           {
+            name: '订单数',
             type: 'value'
           }
         ],
@@ -54,23 +87,11 @@ export default {
           {
             name: '昨日订单',
             type: 'line',
-            stack: '总量1',
-            areaStyle: {
-              normal: {
-                color: '#0C17A6'
-              }
-            },
             data: res.yesterdayOrderData
           },
           {
             name: '今日订单',
             type: 'line',
-            stack: '总量2',
-            areaStyle: {
-              normal: {
-                color: '#398DBF'
-              }
-            },
             data: res.todayOrderData
           }
         ]

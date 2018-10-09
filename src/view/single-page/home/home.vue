@@ -48,7 +48,7 @@
     </Row>
     <Row style="margin-top: 20px;">
       <Card shadow>
-        <example style="height: 310px;" text=""/>
+        <example style="height: 310px;" text="订单"/>
       </Card>
     </Row>
   </div>

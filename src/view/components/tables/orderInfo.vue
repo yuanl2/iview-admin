@@ -53,12 +53,19 @@ export default {
     }
   },
   mounted () {
-    var x = new Date()
-    var y = x.getFullYear().toString()
-    var m = (x.getMonth() + 1).toString()
-    var d = x.getDate().toString()(d.length === 1) && (d = '0' + d)(m.length === 1) && (m = '0' + m)
-    var yyyymmdd = y + '-' + m + '-' + d
-    getOrderInfo(4, yyyymmdd).then(res => {
+    var date = new Date()
+    var seperator1 = '-'
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var strDate = date.getDate()
+    if (month >= 1 && month <= 9) {
+      month = '0' + month
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = '0' + strDate
+    }
+    var currentdate = year + seperator1 + month + seperator1 + strDate
+    getOrderInfo(4, currentdate).then(res => {
       this.tableData = res
     })
   }
