@@ -4,7 +4,7 @@
       <i-col :xs="12" :sm="12" :md="8" v-for="(infor, i) in inforCardData" :key="`infor-${i}`" style="height: 120px;">
         <infor-card shadow :color="infor.color" :icon="infor.icon" :icon-size="36">
           <count-to :end="infor.count" count-class="count-style"/>
-          <p>{{ infor.title }}</p>
+          <p style="font-size: 25px;">{{ infor.title }}</p>
         </infor-card>
       </i-col>
     </Row>

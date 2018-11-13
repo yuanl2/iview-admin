@@ -2,7 +2,7 @@
   <div>
     <Card>
       <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns" @on-delete="handleDelete"/>
-      <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为Csv文件</Button>
+      <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为Excel文件</Button>
     </Card>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
     },
     exportExcel () {
       this.$refs.tables.exportCsv({
-        filename: `table-${(new Date()).valueOf()}.csv`
+        filename: `table-${(new Date()).valueOf()}.xlsx`
       })
     }
   },

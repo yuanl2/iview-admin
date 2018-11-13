@@ -24,12 +24,14 @@ export default {
             subtext: this.subtext,
             x: 'center'
           },
+          tooltip: {},
           xAxis: {
             type: 'category',
             data: xAxisData,
             axisLabel: {
               show: true,
-              interval: 'auto',
+              interval: 0,
+              rotate: 30,
               textStyle: {
                 color: '#800080',
                 fontFamily: 'verdana',
