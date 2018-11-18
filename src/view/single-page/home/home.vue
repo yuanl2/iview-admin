@@ -28,21 +28,7 @@
     <Row :gutter="20" style="margin-top: 20px;">
       <i-col span="24">
         <Card shadow>
-          <chart-bar style="height: 300px;" :value="todayAverageIncomebarData" text="当日台均收益"/>
-        </Card>
-      </i-col>
-    </Row>
-    <Row :gutter="20" style="margin-top: 20px;">
-      <i-col span="24">
-        <Card shadow>
-          <chart-bar style="height: 300px;" :value="monthAverageIncomebarData" text="当月台均收益"/>
-        </Card>
-      </i-col>
-    </Row>
-    <Row :gutter="20" style="margin-top: 20px;">
-      <i-col span="24">
-        <Card shadow>
-          <chart-bar style="height: 300px;" :value="allAverageIncomebarData" text="历史总台均收益"/>
+          <chart-bar2 style="height: 300px;" :value="averageIncomebarData" text="台均收益"/>
         </Card>
       </i-col>
     </Row>
@@ -57,7 +43,7 @@
 <script>
 import InforCard from '_c/info-card'
 import CountTo from '_c/count-to'
-import { ChartPie, ChartBar } from '_c/charts'
+import { ChartPie, ChartBar, ChartBar2 } from '_c/charts'
 import Example from './example.vue'
 import { getSummaryInfo } from '@/api/data'
 export default {
@@ -67,6 +53,7 @@ export default {
     CountTo,
     ChartPie,
     ChartBar,
+    ChartBar2,
     Example
   },
   data () {
@@ -77,11 +64,7 @@ export default {
       currentMonthPieData: [
       ],
       currentDayPieData: [],
-      todayAverageIncomebarData: {
-      },
-      monthAverageIncomebarData: {
-      },
-      allAverageIncomebarData: {
+      averageIncomebarData: {
       }
     }
   },
@@ -92,15 +75,12 @@ export default {
 
   },
   mounted () {
-    console.log('home mounted')
     getSummaryInfo('user2').then(res => {
       this.monthPieData = res.allPieData
       this.inforCardData = res.infoCardData
       this.currentMonthPieData = res.currentMonthPieData
       this.currentDayPieData = res.currentDayPieData
-      this.todayAverageIncomebarData = res.todayAverageIncomebarData
-      this.monthAverageIncomebarData = res.monthAverageIncomebarData
-      this.allAverageIncomebarData = res.allAverageIncomebarData
+      this.averageIncomebarData = res.averageIncomebarData
     })
   }
 }
