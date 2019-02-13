@@ -22,7 +22,13 @@ export default {
         let seriesData3 = this.value.allAverageIncome
         let option = {
           tooltip: {
-            trigger: 'axis'
+            trigger: 'axis',
+            axisPointer: {
+              type: 'cross',
+              crossStyle: {
+                color: '#999'
+              }
+            }
           },
           toolbox: {
             feature: {
@@ -38,6 +44,9 @@ export default {
           xAxis: {
             type: 'category',
             data: xAxisData,
+            axisPointer: {
+              type: 'shadow'
+            },
             axisLabel: {
               show: true,
               interval: 0,
@@ -64,7 +73,7 @@ export default {
             itemStyle: {
               normal: {
                 label: {
-                  show: true,
+                  show: false,
                   formatter: '{c} ¥',
                   textStyle: {
                     color: '#800080',
@@ -83,7 +92,7 @@ export default {
             itemStyle: {
               normal: {
                 label: {
-                  show: true,
+                  show: false,
                   formatter: '{c} ¥',
                   textStyle: {
                     color: '#800080',
@@ -102,7 +111,7 @@ export default {
             itemStyle: {
               normal: {
                 label: {
-                  show: true,
+                  show: false,
                   formatter: '{c} ¥',
                   textStyle: {
                     color: '#800080',
